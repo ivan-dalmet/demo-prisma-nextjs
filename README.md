@@ -1,5 +1,7 @@
 # Demo Prisma NextJS
 
+⚠️ This repo is not a final example but the code made during a live on [twitch.tv/bearstudiolive](https://www.twitch.tv/bearstudiolive)
+
 ## Installation
 
 ```bash

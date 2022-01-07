@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "postinstall": "husky install",
+    "postinstall": "husky install && prisma generate",
     "test": "jest --roots src --watch",
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +12,9 @@
     "pretty": "prettier -w .",
     "lint": "eslint ./src --fix",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook && mv ./storybook-static ./public/storybook"
+    "storybook:build": "build-storybook && mv ./storybook-static ./public/storybook",
+    "db:ui": "prisma studio",
+    "db:push": "prisma db push"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json}": "prettier --write",
@@ -27,6 +29,8 @@
     "@fontsource/inter": "4.5.1",
     "@formiz/core": "1.8.0",
     "@formiz/validations": "1.0.0",
+    "@next-auth/prisma-adapter": "1.0.1",
+    "@prisma/client": "3.7.0",
     "axios": "0.24.0",
     "dayjs": "1.10.7",
     "faker": "5.5.3",
@@ -35,6 +39,7 @@
     "isomorphic-form-data": "2.0.0",
     "lodash": "4.17.21",
     "next": "12.0.7",
+    "next-auth": "4.0.6",
     "react": "17.0.2",
     "react-currency-input-field": "3.6.0",
     "react-day-picker": "7.4.10",
@@ -84,6 +89,7 @@
     "lint-staged": "12.1.4",
     "miragejs": "0.1.43",
     "prettier": "2.5.1",
+    "prisma": "3.7.0",
     "react-is": "17.0.2",
     "storybook-dark-mode": "1.0.8",
     "tsconfig-paths-webpack-plugin": "3.5.2",

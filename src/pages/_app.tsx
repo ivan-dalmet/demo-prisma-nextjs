@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Box, Text, useTheme } from '@chakra-ui/react';
+import { SessionProvider } from 'next-auth/react';
 import Head from 'next/head';
 
 import { Providers } from '@/Providers';
@@ -97,17 +98,19 @@ const AppHead = () => {
   );
 };
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
-    <Providers>
-      <AppHead />
-      <ErrorBoundary>
-        <Viewport>
-          <Component {...pageProps} />
-        </Viewport>
-        <AppDevHint />
-      </ErrorBoundary>
-    </Providers>
+    <SessionProvider session={session}>
+      <Providers>
+        <AppHead />
+        <ErrorBoundary>
+          <Viewport>
+            <Component {...pageProps} />
+          </Viewport>
+          <AppDevHint />
+        </ErrorBoundary>
+      </Providers>
+    </SessionProvider>
   );
 };
 export default App;
